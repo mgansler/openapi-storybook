@@ -5,6 +5,9 @@ import styles from './app.module.css';
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
 
+import {PetApi} from '@openapi-storybook/api-client';
+const petApi = new PetApi()
+
 export function App() {
   return (
     <div className={styles.app}>
