@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "react-app",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "application": { "style": "css", "linter": "eslint", "babel": true },
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
   },
   "projects": {
@@ -70,13 +59,9 @@
         },
         "serve": {
           "executor": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "react-app:build"
-          },
+          "options": { "buildTarget": "react-app:build" },
           "configurations": {
-            "production": {
-              "buildTarget": "react-app:build:production"
-            }
+            "production": { "buildTarget": "react-app:build:production" }
           }
         },
         "lint": {
@@ -92,6 +77,25 @@
             "jestConfig": "apps/react-app/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": { "configFolder": "apps/react-app/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/react-app",
+            "config": { "configFolder": "apps/react-app/.storybook" }
+          },
+          "configurations": { "ci": { "quiet": true } }
         }
       }
     },
@@ -108,16 +112,12 @@
             "devServerTarget": "react-app:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "react-app:serve:production"
-            }
+            "production": { "devServerTarget": "react-app:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/react-app-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/react-app-e2e/**/*.{js,ts}"] }
         }
       }
     }
