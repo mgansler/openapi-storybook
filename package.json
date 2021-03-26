@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "generate-api-client": "openapi-generator-cli generate -i libs/api-client/src/swagger.yml -g typescript-fetch -o libs/api-client/src/lib/generated --additional-properties=typescriptThreePlus=true,enumPropertyNaming=original"
   },
   "private": true,
   "dependencies": {
@@ -48,6 +49,7 @@
     "@nrwl/tao": "11.5.2",
     "@nrwl/web": "11.5.2",
     "@nrwl/workspace": "11.5.2",
+    "@openapitools/openapi-generator-cli": "^2.2.3",
     "@storybook/addon-knobs": "^6.1.11",
     "@storybook/react": "^6.1.11",
     "@svgr/webpack": "^5.4.0",
